@@ -1,0 +1,52 @@
+export const trainingModules = [
+    {
+        id: 1,
+        title: 'Food Safety & Handling Level 1',
+        category: 'Kitchen Operations',
+        type: 'Video Course',
+        duration: '45 Mins',
+        status: 'Completed',
+        progress: 100,
+        icon: 'video'
+    },
+    {
+        id: 2,
+        title: 'Customer Service Excellence',
+        category: 'Front of House',
+        type: 'Interactive Quiz',
+        duration: '30 Mins',
+        status: 'In Progress',
+        progress: 60,
+        icon: 'quiz'
+    },
+    {
+        id: 3,
+        title: 'Using the Square POS System',
+        category: 'Operations',
+        type: 'PDF Guide',
+        duration: '1 Hour',
+        status: 'Not Started',
+        progress: 0,
+        icon: 'document'
+    },
+    {
+        id: 4,
+        title: 'Opening & Closing Procedures',
+        category: 'Operations',
+        type: 'Checklist',
+        duration: '20 Mins',
+        status: 'Not Started',
+        progress: 0,
+        icon: 'document'
+    },
+    {
+        id: 5,
+        title: 'Advanced Grilling Techniques',
+        category: 'Kitchen Operations',
+        type: 'Video Course',
+        duration: '1.5 Hours',
+        status: 'Completed',
+        progress: 100,
+        icon: 'video'
+    },
+];

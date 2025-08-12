@@ -1,48 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+// Import NavLink instead of Link
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
 
-// The API URL will be your local Django server for now.
-const API_URL = 'http://127.0.0.1:8000/api/menu/';
+// Import your page components
+import DashboardPage from './pages/DashboardPage';
+import InventoryPage from './pages/InventoryPage';
+import MenuPage from './pages/MenuPage';
+import SchedulePage from './pages/SchedulePage';
+import TrainingPage from './pages/TrainingPage';
 
 function App() {
-  const [menuItems, setMenuItems] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        setMenuItems(response.data);
-      } catch (err) {
-        setError('Failed to fetch menu. Is the backend server running?');
-        console.error(err);
-      }
-    };
-
-    fetchMenu();
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Plateau Restaurant Menu</h1>
-      </header>
-      <main className="menu-container">
-        {error && <p className="error">{error}</p>}
-        {menuItems.length > 0 ? (
-          menuItems.map(item => (
-            <div key={item.id} className="menu-item">
-              <h2>{item.name}</h2>
-              <p>{item.description}</p>
-              <p className="price">${item.price}</p>
-            </div>
-          ))
-        ) : (
-          !error && <p>Loading menu...</p>
-        )}
-      </main>
-    </div>
+    <Router>
+      {/* The entire app is wrapped in a div for easier styling if needed */}
+      <div className="App">
+        {/* The navigation bar */}
+        <nav className="main-nav">
+          <div className="nav-logo">
+            <NavLink to="/">Plateau</NavLink>
+          </div>
+          <div className="nav-links">
+            <NavLink to="/dashboard">Dashboard</NavLink>
+            <NavLink to="/menu">Menu</NavLink>
+            <NavLink to="/inventory">Inventory</NavLink>
+            <NavLink to="/schedule">Schedule</NavLink>
+            <NavLink to="/training">Training</NavLink>
+          </div>
+        </nav>
+
+        {/* The main content area where pages will be rendered */}
+        <main className="content">
+          <Routes>
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            {/* Add placeholder routes for the new links */}
+            <Route path="/inventory" element={<InventoryPage/>} />
+            <Route path="/schedule" element={<SchedulePage />} /> {/* <-- Add the new route */}
+            <Route path="/training" element={<TrainingPage />} />
+            {/* The default route now directs to the Menu Page */}
+            <Route path="/" element={<MenuPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

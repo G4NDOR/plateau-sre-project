@@ -1,0 +1,129 @@
+/* --- Base Styles for the Inventory Page --- */
+.inventory-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 1rem;
+}
+
+.inventory-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 250px;
+}
+
+.add-item-btn {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-item-btn:hover {
+    background-color: #2563eb;
+}
+
+/* --- Table Styles --- */
+.table-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* Important for responsiveness */
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.inventory-table thead {
+    background-color: #f9fafb;
+}
+
+.inventory-table th {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inventory-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* --- Status Badge Styles --- */
+.status-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    display: inline-block;
+}
+
+.status-in-stock {
+    background-color: #dcfce7; /* Green */
+    color: #166534;
+}
+
+.status-low-stock {
+    background-color: #fef9c3; /* Yellow */
+    color: #854d0e;
+}
+
+.status-out-of-stock {
+    background-color: #fee2e2; /* Red */
+    color: #991b1b;
+}
+
+/* --- Action Button in Table --- */
+.reorder-btn {
+    background-color: transparent;
+    color: #3b82f6;
+    font-weight: 600;
+    border: 1px solid #3b82f6;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.reorder-btn:hover {
+    background-color: #3b82f6;
+    color: white;
+}

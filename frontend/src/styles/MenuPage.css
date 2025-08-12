@@ -1,0 +1,159 @@
+/* --- Global Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* --- Base Body & Font Styles --- */
+/* Note: It's best practice to put these in your main index.css file */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* --- Reusable Container --- */
+.container {
+    width: 90%;
+    max-width: 1400px; /* Increased max-width for a wider layout */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Header Styles --- */
+.page-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 700;
+    color: #1e40af; /* A deeper blue */
+}
+
+.page-header p {
+    font-size: 1.125rem; /* 18px */
+    color: #6b7280; /* A softer gray */
+    margin-top: 0.25rem;
+}
+
+/* --- Category Button Styles --- */
+.category-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px; /* rounded-full */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    color: #374151; /* gray-700 */
+    background-color: #e5e7eb; /* gray-200 */
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.category-btn:hover {
+    background-color: #d1d5db; /* gray-300 */
+    color: #111827; /* gray-900 */
+}
+
+.category-btn.active {
+    background-color: #3b82f6; /* blue-500 */
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+/* --- Menu Grid & Card Styles --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; /* Increased gap for more breathing room */
+}
+
+.menu-card {
+    background-color: #ffffff;
+    border-radius: 16px; /* More pronounced rounding */
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f3f4f6; /* Subtle border */
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px; /* Increased image height */
+    object-fit: cover;
+}
+
+.menu-card .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-card h3 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    color: #1f2937; /* Darker text */
+    margin-bottom: 0.5rem;
+}
+
+.menu-card p.description {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.menu-card p.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #16a34a; /* A vibrant green */
+    text-align: right;
+    margin-top: auto;
+}
+
+/* --- Modal Styles --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.6); /* Darker backdrop with opacity */
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 90%;
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-backdrop.visible .modal-content {
+    transform: scale(1) translateY(0);
+}

@@ -1,0 +1,30 @@
+{
+    "scheduleData" : {
+        "Monday": [
+            { "id": 1, "employee": "Alice", "role": "Chef", "shift": "9:00 AM - 5:00 PM", "avatar": "https://placehold.co/100x100/a0d2db/ffffff?text=A" },
+            { "id": 2, "employee": "David", "role": "Server", "shift": "11:00 AM - 7:00 PM", "avatar": "https://placehold.co/100x100/f78fb3/ffffff?text=D" }
+        ],
+        "Tuesday": [
+            { "id": 3, "employee": "Bob", "role": "Server", "shift": "10:00 AM - 6:00 PM", "avatar": "https://placehold.co/100x100/e54d42/ffffff?text=B" },
+            { "id": 4, "employee": "Frank", "role": "Dishwasher", "shift": "12:00 PM - 8:00 PM", "avatar": "https://placehold.co/100x100/f8b400/ffffff?text=F" }
+        ],
+        "Wednesday": [
+            { "id": 1, "employee": "Alice", "role": "Chef", "shift": "9:00 AM - 5:00 PM", "avatar": "https://placehold.co/100x100/a0d2db/ffffff?text=A" },
+            { "id": 5, "employee": "Grace", "role": "Host", "shift": "4:00 PM - 10:00 PM", "avatar": "https://placehold.co/100x100/50c878/ffffff?text=G" }
+        ],
+        "Thursday": [
+            { "id": 2, "employee": "David", "role": "Server", "shift": "11:00 AM - 7:00 PM", "avatar": "https://placehold.co/100x100/f78fb3/ffffff?text=D" },
+            { "id": 3, "employee": "Bob", "role": "Server", "shift": "10:00 AM - 6:00 PM", "avatar": "https://placehold.co/100x100/e54d42/ffffff?text=B" }
+        ],
+        "Friday": [
+            { "id": 1, "employee": "Alice", "role": "Chef", "shift": "12:00 PM - 8:00 PM", "avatar": "https://placehold.co/100x100/a0d2db/ffffff?text=A" },
+            { "id": 5, "employee": "Grace", "role": "Host", "shift": "5:00 PM - 11:00 PM", "avatar": "https://placehold.co/100x100/50c878/ffffff?text=G" },
+            { "id": 2, "employee": "David", "role": "Server", "shift": "5:00 PM - 11:00 PM", "avatar": "https://placehold.co/100x100/f78fb3/ffffff?text=D" }
+        ],
+        "Saturday": [
+            { "id": 3, "employee": "Bob", "role": "Server", "shift": "4:00 PM - 11:00 PM", "avatar": "https://placehold.co/100x100/e54d42/ffffff?text=B" },
+            { "id": 4, "employee": "Frank", "role": "Dishwasher", "shift": "5:00 PM - 11:00 PM", "avatar": "https://placehold.co/100x100/f8b400/ffffff?text=F" }
+        ],
+        "Sunday": []
+    }
+}

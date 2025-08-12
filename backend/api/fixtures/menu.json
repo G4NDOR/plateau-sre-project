@@ -1,0 +1,89 @@
+{
+    "menuData" : {
+        "Appetizers": [
+            {
+                "id": "APP-01",
+                "name": "Observability Onion Rings",
+                "description": "Crispy, golden-fried onion rings. You can see every metric of flavor.",
+                "price": 8.75,
+                "photo": "https://placehold.co/600x400/f8b400/ffffff?text=Onion+Rings"
+            },
+            {
+                "id": "APP-02",
+                "name": "SRE-viche",
+                "description": "A reliable and highly available citrus-cured fish appetizer with avocado and cilantro.",
+                "price": 12.50,
+                "photo": "https://placehold.co/600x400/a0d2db/ffffff?text=Ceviche"
+            },
+            {
+                "id": "APP-03",
+                "name": "Containerized Calamari",
+                "description": "Lightly breaded and fried calamari, served with a zesty marinara sauce.",
+                "price": 11.00,
+                "photo": "https://placehold.co/600x400/f5a623/ffffff?text=Calamari"
+            }
+        ],
+        "Main Courses": [
+            {
+                "id": "MAIN-01",
+                "name": "Cloud-Native Burger",
+                "description": "A delicious 1/2 lb burger with cheddar, lettuce, and tomato, served with a side of containerized fries.",
+                "price": 15.99,
+                "photo": "https://placehold.co/600x400/e54d42/ffffff?text=Burger"
+            },
+            {
+                "id": "MAIN-02",
+                "name": "Kubernetes Kebab",
+                "description": "Perfectly orchestrated and scalable skewers of marinated chicken and vegetables.",
+                "price": 18.50,
+                "photo": "https://placehold.co/600x400/50c878/ffffff?text=Kebab"
+            },
+            {
+                "id": "MAIN-03",
+                "name": "Serverless Salmon",
+                "description": "Pan-seared salmon with a lemon-dill sauce, served on-demand with asparagus.",
+                "price": 22.00,
+                "photo": "https://placehold.co/600x400/f78fb3/ffffff?text=Salmon"
+            },
+             {
+                "id": "MAIN-04",
+                "name": "Firewall Fajitas",
+                "description": "Sizzling hot plate of grilled steak or chicken with peppers and onions, secured with warm tortillas.",
+                "price": 19.75,
+                "photo": "https://placehold.co/600x400/d9534f/ffffff?text=Fajitas"
+            }
+        ],
+        "Desserts": [
+            {
+                "id": "DSRT-01",
+                "name": "Terraform Tiramisu",
+                "description": "A layered dessert, provisioned perfectly every time with coffee-soaked ladyfingers and mascarpone cream.",
+                "price": 9.00,
+                "photo": "https://placehold.co/600x400/8b5e3c/ffffff?text=Tiramisu"
+            },
+            {
+                "id": "DSRT-02",
+                "name": "Dockerized Doughnuts",
+                "description": "A trio of isolated, light, and fluffy doughnuts with various glazes.",
+                "price": 7.50,
+                "photo": "https://placehold.co/600x400/ffcad4/333333?text=Doughnuts"
+            }
+        ],
+        "Beverages": [
+            {
+                "id": "BEV-01",
+                "name": "API-Gria",
+                "description": "A refreshing red wine punch, a perfect interface for a warm evening.",
+                "price": 8.00,
+                "photo": "https://placehold.co/600x400/c0392b/ffffff?text=Sangria"
+            },
+            {
+                "id": "BEV-02",
+                "name": "Lambda Lemonade",
+                "description": "Freshly squeezed lemonade, a serverless function for quenching thirst.",
+                "price": 4.50,
+                "photo": "https://placehold.co/600x400/f1c40f/333333?text=Lemonade"
+            }
+        ]
+    }
+}
