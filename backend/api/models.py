@@ -1,5 +1,23 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+class Profile(models.Model):
+    ROLE_CHOICES = (
+        ('owner', 'Owner'),
+        ('manager', 'Manager'),
+        ('employee', 'Employee'),
+        ('customer', 'Customer'),
+    )
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+
+    def __str__(self):
+        # This checks if the user exists before trying to access its username
+        if self.user:
+            return f'{self.user.username} - {self.get_role_display()}'
+        return f'Profile for an unknown user (ID: {self.id})'
+
+        
 class MenuItem(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()

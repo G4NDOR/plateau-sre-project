@@ -1,8 +1,9 @@
+// frontend/src/pages/TrainingPage.js
+
 import React, { useEffect, useState } from 'react';
+import AccessDeniedPage from './AccessDeniedPage';
 import '../styles/TrainingPage.css';
 
-
-// Helper to get the right icon (using simple text for now, could be SVGs)
 const TypeIcon = ({ type }) => {
     let iconSymbol = '?';
     if (type === 'video') iconSymbol = '▶';
@@ -11,22 +12,49 @@ const TypeIcon = ({ type }) => {
     return <div className="type-icon">{iconSymbol}</div>;
 };
 
-
 function TrainingPage() {
-    const [trainingModules, setTrainingModules] = useState([]);
+    const [trainingModules, setTrainingModules] = useState(null);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchTraining = async () => {
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                setError('You must be logged in to view training modules.');
+                return;
+            }
+
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/training/');
+                const response = await fetch('/api/training/', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.status === 401 || response.status === 403) {
+                    throw new Error('You do not have permission to view this page.');
+                }
+                if (!response.ok) {
+                    throw new Error('Failed to fetch training data.');
+                }
+                
                 const data = await response.json();
                 setTrainingModules(data);
-            } catch (error) {
-                console.error("Failed to fetch training modules:", error);
+            } catch (err) {
+                setError(err.message);
+                console.error("Failed to fetch training modules:", err);
             }
         };
         fetchTraining();
     }, []);
+
+    if (error) {
+        return <AccessDeniedPage error={error} />;
+    }
+
+    if (!trainingModules) {
+        return <div>Loading training modules...</div>;
+    }
 
     return (
         <div className="training-page">
@@ -49,7 +77,7 @@ function TrainingPage() {
                         </div>
                         <div className="card-footer">
                             <div className="progress-bar-container">
-                                <div 
+                                <div
                                     className="progress-bar-fill"
                                     style={{ width: `${module.progress}%` }}
                                 ></div>

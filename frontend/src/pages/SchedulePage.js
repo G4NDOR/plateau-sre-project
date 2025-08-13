@@ -1,24 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/SchedulePage.css';
+// frontend/src/pages/SchedulePage.js
 
+import React, { useEffect, useState } from 'react';
+import AccessDeniedPage from './AccessDeniedPage';
+import '../styles/SchedulePage.css';
 
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 function SchedulePage() {
-    const [scheduleData, setScheduleData] = useState({});
+    const [scheduleData, setScheduleData] = useState(null);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchSchedule = async () => {
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                setError('You must be logged in to view the schedule.');
+                return;
+            }
+
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/schedule/');
+                const response = await fetch('/api/schedule/', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    throw new Error('You do not have permission to view this page.');
+                }
+                if (!response.ok) {
+                    throw new Error('Failed to fetch schedule data.');
+                }
+
                 const data = await response.json();
                 setScheduleData(data);
-            } catch (error) {
-                console.error("Failed to fetch schedule:", error);
+            } catch (err) {
+                setError(err.message);
+                console.error("Failed to fetch schedule:", err);
             }
         };
         fetchSchedule();
     }, []);
+
+    if (error) {
+        return <AccessDeniedPage error={error} />;
+    }
+
+    if (!scheduleData) {
+        return <div>Loading schedule...</div>;
+    }
 
     return (
         <div className="schedule-page">

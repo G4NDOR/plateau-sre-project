@@ -31,7 +31,7 @@ function MenuPage() {
 
     return (
         <>
-            <Header />
+            
             <main className="container mx-auto p-4 md:p-8">
                 <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
                     {categories.map(category => (

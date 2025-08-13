@@ -1,0 +1,81 @@
+/* frontend/src/styles/Header.css */
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #007bff;
+}
+
+.main-nav a.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+}
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcome-user {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.login-btn, .logout-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.logout-btn {
+    background-color: transparent;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+.logout-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}

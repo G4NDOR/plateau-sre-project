@@ -1,31 +1,58 @@
+// frontend/src/pages/InventoryPage.js
+
 import React, { useEffect, useState } from 'react';
+import AccessDeniedPage from './AccessDeniedPage';
 import '../styles/InventoryPage.css';
 
-
-// Helper component for the status badge
 const StatusBadge = ({ status }) => {
-    // Generates a CSS-friendly class name from the status, e.g., "In Stock" -> "status-in-stock"
     const statusClass = `status-${status.toLowerCase().replace(' ', '-')}`;
     return <span className={`status-badge ${statusClass}`}>{status}</span>;
 };
 
-
 function InventoryPage() {
-    const [inventoryData, setInventoryData] = useState([]);
+    const [inventoryData, setInventoryData] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchInventory = async () => {
+            const token = localStorage.getItem('accessToken');
+            if (!token) {
+                setError('You must be logged in to view inventory.');
+                return;
+            }
+
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/inventory/');
+                const response = await fetch('/api/inventory/', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    throw new Error('You do not have permission to view this page.');
+                }
+                if (!response.ok) {
+                    throw new Error('Failed to fetch inventory data.');
+                }
+                
                 const data = await response.json();
                 setInventoryData(data);
-            } catch (error) {
-                console.error("Failed to fetch inventory:", error);
+            } catch (err) {
+                setError(err.message);
+                console.error("Failed to fetch inventory:", err);
             }
         };
         fetchInventory();
     }, []);
+
+    if (error) {
+        return <AccessDeniedPage error={error} />;
+    }
+
+    if (!inventoryData) {
+        return <div>Loading inventory...</div>;
+    }
 
     const filteredInventory = inventoryData.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
